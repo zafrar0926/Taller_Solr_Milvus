@@ -1,0 +1,8 @@
+[¿Cuáles fueron los principales patrones de violaciones a los derechos humanos?] hits=1/2 recall@5=0.50
+[¿Cómo contribuyeron la disciplina interna y las normas de control social de los grupos armados al mantenimiento de la violencia?] hits=1/1 recall@5=1.00
+[¿Cómo explica la Comisión las causas y responsabilidades de las violaciones de derechos humanos?] hits=1/2 recall@5=0.50
+[¿Cómo participaron las empresas privadas en el conflicto armado?] hits=1/1 recall@5=1.00
+[¿Cómo se aborda la verdad y la reconciliación en el informe final?] hits=1/1 recall@5=1.00
+[¿Qué papel tuvieron los actores civiles en el conflicto armado colombiano?] hits=0/1 recall@5=0.00
+
+🔥 AVG recall@5: 0.667 sobre 6 consultas

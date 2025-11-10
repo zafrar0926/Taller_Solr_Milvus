@@ -1,0 +1,176 @@
+services:
+  # ---------------------------
+  # SOLR - Recuperación léxica (BM25)
+  # ---------------------------
+  solr:
+    image: solr:9.5
+    ports:
+      - "8983:8983"
+    volumes:
+      - ./services/solr/data:/var/solr
+    environment:
+      - SOLR_HEAP=2g
+    command: ["solr-precreate", "rag_core"]
+    networks: [rag_net]
+    restart: unless-stopped
+
+  # ---------------------------
+  # MILVUS - Dependencias
+  # ---------------------------
+  etcd:
+    image: quay.io/coreos/etcd:v3.5.5
+    command:
+      - etcd
+      - --advertise-client-urls=http://0.0.0.0:2379
+      - --listen-client-urls=http://0.0.0.0:2379
+      - --data-dir=/etcd-data
+    ports:
+      - "2379:2379"
+    volumes:
+      - ./services/etcd/data:/etcd-data
+    networks: [rag_net]
+    healthcheck:
+      test: ["CMD", "etcdctl", "--endpoints=http://localhost:2379", "endpoint", "health"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+    restart: unless-stopped
+
+  minio:
+    image: minio/minio:RELEASE.2023-09-04T19-57-37Z
+    command: server /data --console-address ":9001"
+    environment:
+      - ETCD_ENDPOINTS=etcd:2379
+      - MINIO_USE_SSL=false
+      - MINIO_ACCESS_KEY=minioadmin
+      - MINIO_SECRET_KEY=minioadmin
+      - MINIO_BUCKET_NAME=milvus-bucket
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./services/minio/data:/data
+    networks: [rag_net]
+    # Si no tienes curl en la imagen, comenta este bloque o cámbialo por wget
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 5s
+      timeout: 3s
+      retries: 60
+    restart: unless-stopped
+
+  minio_setup:
+    image: minio/mc:latest
+    depends_on:
+      minio:
+        condition: service_healthy
+    networks: [rag_net]
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      mc alias set local http://minio:9000 minioadmin minioadmin &&
+      mc mb -p local/milvus-bucket || true &&
+      mc ls local
+    restart: "no"
+
+  # ---------------------------
+  # MILVUS - Motor vectorial
+  # ---------------------------
+  milvus:
+    image: milvusdb/milvus:v2.3.4
+    command: ["milvus", "run", "standalone"]
+    depends_on:
+      etcd:
+        condition: service_started
+      minio:
+        condition: service_started
+    environment:
+      ETCD_ENDPOINTS: etcd:2379
+      MINIO_ADDRESS: minio:9000
+      MINIO_ACCESS_KEY: minioadmin
+      MINIO_SECRET_KEY: minioadmin
+      MILVUS_LOG_LEVEL: debug
+      DATA_NODE_DATA_PATH: /var/lib/milvus
+    ports:
+      - "19530:19530"
+      - "9091:9091"
+    volumes:
+      - ./services/milvus/data:/var/lib/milvus
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9091/healthz"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    networks: [rag_net]
+
+  # ---------------------------
+  # INDEXER SOLR - carga léxica del corpus
+  # ---------------------------
+# en docker-compose.yml
+  indexer:
+    build: ./services/indexer
+    volumes:
+      - ./data:/app/data
+      - ./services/indexer:/app
+    depends_on:
+      solr:
+        condition: service_started
+    environment:
+      - SOLR_URL=http://solr:8983/solr/rag_core
+      - CORPUS_PATH=/app/data/corpus/books_preprocessed_MWE.jsonl   # ajusta si aplica
+    command: ["python", "index_corpus.py"]
+    networks: [rag_net]
+    restart: on-failure
+
+
+  # ---------------------------
+  # INDEXER MILVUS - vectorización del corpus
+  # ---------------------------
+  indexer_milvus:
+    build:
+      context: ./services/indexer
+      dockerfile: Dockerfile
+    volumes:
+      - ./data:/app/data
+      - ./services/indexer:/app
+    depends_on:
+      milvus:
+        condition: service_healthy
+    command: ["python", "index_milvus.py"]
+    networks: [rag_net]
+    restart: on-failure
+    environment:
+      - MILVUS_HOST=milvus
+      - MILVUS_PORT=19530
+      - MODEL_NAME=sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+
+
+
+  # ---------------------------
+  # API - RAG unificada (FastAPI)
+  # ---------------------------
+  api:
+    build: ./services/api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./services/api:/app
+      - ./data:/app/data
+    environment:
+      - MILVUS_HOST=milvus
+      - MILVUS_PORT=19530
+      - BACKEND_SOLR=http://solr:8983/solr/rag_core
+      - BACKEND_MILVUS=milvus:19530
+      - CORPUS_PATH=/app/data/corpus/books_preprocessed_MWE.jsonl
+      - MODEL_NAME=sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+    depends_on:
+      milvus:
+        condition: service_healthy
+      solr:
+        condition: service_started
+    networks: [rag_net]
+    restart: on-failure
+
+
+networks:
+  rag_net:
+    driver: bridge

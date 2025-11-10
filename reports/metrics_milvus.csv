@@ -1,0 +1,11 @@
+query,recall@5,mrr,ndcg,latency_s
+¿Qué papel tuvieron los actores civiles en el conflicto armado colombiano?,0.0,0.0,0.0,0.03653693199157715
+¿Cómo explica la Comisión las causas y responsabilidades de las violaciones de derechos humanos?,0.5,1.0,0.6131471927654584,0.02541351318359375
+¿Cómo documenta la Comisión las prácticas de reclutamiento forzado y secuestro como estrategias de guerra?,0.0,0.0,0.0,0.02681255340576172
+¿Cómo contribuyeron la disciplina interna y las normas de control social de los grupos armados al mantenimiento de la violencia?,1.0,0.3333333333333333,0.5,0.02811598777770996
+¿Qué impacto tuvo el desplazamiento forzado sobre comunidades afrocolombianas?,0.0,0.0,0.0,0.028146743774414062
+¿Cuáles fueron los principales patrones de violaciones a los derechos humanos?,0.5,1.0,0.6131471927654584,0.025835752487182617
+¿Cómo participaron las empresas privadas en el conflicto armado?,1.0,0.3333333333333333,0.5,0.026729583740234375
+¿Qué papel jugaron las fuerzas armadas del Estado?,0.0,0.0,0.0,0.028269052505493164
+¿Qué políticas se propusieron para garantizar la no repetición?,0.0,0.0,0.0,0.031598806381225586
+¿Cómo se aborda la verdad y la reconciliación en el informe final?,1.0,0.3333333333333333,0.5,0.03554892539978027

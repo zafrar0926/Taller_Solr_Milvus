@@ -1,0 +1,2 @@
+Recall@5,ROUGE-L (F1),Relevancia (LLM),Coherencia (LLM),Fidelidad (LLM)
+0.67,0.23818,6.8,8.2,7.1

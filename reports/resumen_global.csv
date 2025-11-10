@@ -1,0 +1,7 @@
+,Valor Promedio
+Promedio ROUGE-L Milvus,0.238
+Promedio ROUGE-L Solr,0.017
+Latencia Milvus (s),0.124
+Latencia Solr (s),0.1
+LLM Relevancia Milvus,6.8
+LLM Relevancia Solr,0.7

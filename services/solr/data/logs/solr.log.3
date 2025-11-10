@@ -1,0 +1,61 @@
+2025-11-09 22:59:09.394 INFO  (main) [c: s: r: x: t:] o.e.j.s.Server jetty-10.0.19; built: 2023-12-15T20:38:32.477Z; git: 8492d1c78f122bb30cce20aecfa07e7283facd47; jvm 17.0.12+7
+2025-11-09 22:59:09.691 WARN  (main) [c: s: r: x: t:] o.e.j.u.DeprecationWarning Using @Deprecated Class org.eclipse.jetty.servlet.listener.ELContextCleaner
+2025-11-09 22:59:09.726 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider Using logger factory org.apache.logging.slf4j.Log4jLoggerFactory
+2025-11-09 22:59:09.735 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider  ___      _       Welcome to Apache Solr™ version 9.5.0
+2025-11-09 22:59:09.735 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider / __| ___| |_ _   Starting in standalone mode on port 8983
+2025-11-09 22:59:09.735 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider \__ \/ _ \ | '_|  Install dir: /opt/solr-9.5.0
+2025-11-09 22:59:09.735 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider |___/\___/_|_|    Start time: 2025-11-09T22:59:09.735925963Z
+2025-11-09 22:59:09.740 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider Solr started with "-XX:+CrashOnOutOfMemoryError" that will crash on any OutOfMemoryError exception. The cause of the OOME will be logged in the crash file at the following path: /var/solr/logs/jvm_crash_12.log
+2025-11-09 22:59:09.778 INFO  (main) [c: s: r: x: t:] o.a.s.s.CoreContainerProvider Solr Home: /var/solr/data (source: system property: solr.solr.home)
+2025-11-09 22:59:09.801 INFO  (main) [c: s: r: x: t:] o.a.s.c.SolrXmlConfig solr.xml not found in SOLR_HOME, using built-in default
+2025-11-09 22:59:09.801 INFO  (main) [c: s: r: x: t:] o.a.s.c.SolrXmlConfig Loading solr.xml from /opt/solr-9.5.0/server/solr/solr.xml
+2025-11-09 22:59:09.844 INFO  (main) [c: s: r: x: t:] o.a.s.c.SolrResourceLoader Added 1 libs to classloader, from paths: [/opt/solr-9.5.0/lib]
+2025-11-09 22:59:10.731 INFO  (main) [c: s: r: x: t:] o.a.s.u.t.SimplePropagator Always-on trace id generation enabled.
+2025-11-09 22:59:11.011 WARN  (main) [c: s: r: x: t:] o.a.s.u.StartupLoggingUtils Jetty request logging enabled. Will retain logs for last 3 days. See chapter "Configuring Logging" in reference guide for how to configure.
+2025-11-09 22:59:11.012 WARN  (main) [c: s: r: x: t:] o.a.s.c.CoreContainer Not all security plugins configured!  authentication=disabled authorization=disabled.  Solr is only as secure as you make it. Consider configuring authentication/authorization before exposing Solr to users internal or external.  See https://s.apache.org/solrsecurity for more info
+2025-11-09 22:59:11.215 INFO  (main) [c: s: r: x: t:] o.a.s.c.CorePropertiesLocator Found 1 core definitions underneath /var/solr/data
+2025-11-09 22:59:11.215 INFO  (main) [c: s: r: x: t:] o.a.s.c.CorePropertiesLocator Cores are: [rag_core]
+2025-11-09 22:59:11.248 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.c.SolrConfig Using Lucene MatchVersion: 9.9.0
+2025-11-09 22:59:11.331 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.s.IndexSchema Schema name=default-config
+2025-11-09 22:59:11.435 WARN  (main) [c: s: r: x: t:] o.g.j.m.i.MessagingBinders A class jakarta.activation.DataSource for a default provider MessageBodyWriter<jakarta.activation.DataSource> was not found. The provider is not available.
+2025-11-09 22:59:11.606 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.s.IndexSchema Loaded schema default-config/1.6 with uniqueid field id
+2025-11-09 22:59:11.606 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.c.CoreContainer Creating SolrCore 'rag_core' using configuration from instancedir /var/solr/data/rag_core, trusted=true
+2025-11-09 22:59:11.657 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.c.SolrCore Opening new SolrCore at [/var/solr/data/rag_core], dataDir=[/var/solr/data/rag_core/data/]
+2025-11-09 22:59:11.795 INFO  (main) [c: s: r: x: t:] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2025-11-09 22:59:11.982 INFO  (main) [c: s: r: x: t:] o.e.j.s.h.ContextHandler Started o.e.j.w.WebAppContext@655a5d9c{solr-jetty-context.xml,/solr,file:///opt/solr-9.5.0/server/solr-webapp/webapp/,AVAILABLE}{/opt/solr-9.5.0/server/solr-webapp/webapp}
+2025-11-09 22:59:11.988 INFO  (main) [c: s: r: x: t:] o.e.j.s.RequestLogWriter Opened /var/solr/logs/2025_11_09.request.log
+2025-11-09 22:59:11.994 INFO  (main) [c: s: r: x: t:] o.e.j.s.AbstractConnector Started ServerConnector@2b95e48b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2025-11-09 22:59:11.995 INFO  (main) [c: s: r: x: t:] o.e.j.s.Server Started Server@376a312c{STARTING}[10.0.19,sto=0] @3885ms
+2025-11-09 22:59:12.241 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.j.SolrRequestAuthorizer Creating a new SolrRequestAuthorizer
+2025-11-09 22:59:12.264 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.u.UpdateHandler Using UpdateLog implementation: org.apache.solr.update.UpdateLog
+2025-11-09 22:59:12.264 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.u.UpdateLog Initializing UpdateLog: dataDir= defaultSyncLevel=FLUSH numRecordsToKeep=100 maxNumLogsToKeep=10 numVersionBuckets=65536
+2025-11-09 22:59:12.302 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.u.CommitTracker Hard AutoCommit: if uncommitted for 15000ms; 
+2025-11-09 22:59:12.302 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.u.CommitTracker Soft AutoCommit: if uncommitted for 3000ms; 
+2025-11-09 22:59:12.435 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.r.ManagedResourceStorage File-based storage initialized to use dir: /var/solr/data/rag_core/conf
+2025-11-09 22:59:12.445 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.s.DirectSolrSpellChecker init: {name=default, field=_text_, classname=solr.DirectSolrSpellChecker, distanceMeasure=internal, maxEdits=2, minPrefix=1, maxInspections=5, minQueryLength=4, accuracy=0.5, maxQueryFrequency=0.01}
+2025-11-09 22:59:12.451 INFO  (coreLoadExecutor-11-thread-1) [c: s: r: x:rag_core t:] o.a.s.h.ReplicationHandler Commits will be reserved for 10000 ms
+2025-11-09 22:59:12.452 INFO  (searcherExecutor-13-thread-1-processing-rag_core) [c: s: r: x:rag_core t:] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2025-11-09 22:59:12.452 INFO  (searcherExecutor-13-thread-1-processing-rag_core) [c: s: r: x:rag_core t:] o.a.s.h.c.SpellCheckComponent Loading spell index for spellchecker: default
+2025-11-09 22:59:12.456 INFO  (searcherExecutor-13-thread-1-processing-rag_core) [c: s: r: x:rag_core t:] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2025-11-09 23:00:19.205 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-1) [c: s: r: x:rag_core t:null-1] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2025-11-09 23:00:19.215 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-1) [c: s: r: x:rag_core t:null-1] o.a.s.c.SolrCore Registered new searcher autowarm time: 3 ms
+2025-11-09 23:00:19.220 INFO  (qtp693267461-54-null-1) [c: s: r: x:rag_core t:null-1] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[S00000 (1848355553116422144), S00001 (1848355553170948096), S00002 (1848355553181433856), S00003 (1848355553188773888), S00004 (1848355553191919616), S00005 (1848355553200308224), S00006 (1848355553202405376), S00007 (1848355553225474048), S00008 (1848355553229668352), S00009 (1848355553234911232), ... (50 adds)], commit=} 0 689
+2025-11-09 23:00:19.566 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-2) [c: s: r: x:rag_core t:null-2] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2025-11-09 23:00:19.570 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-2) [c: s: r: x:rag_core t:null-2] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2025-11-09 23:00:19.574 INFO  (qtp693267461-28-null-2) [c: s: r: x:rag_core t:null-2] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[S00050 (1848355553796947968), S00051 (1848355553801142272), S00052 (1848355553804288000), S00053 (1848355553805336576), S00054 (1848355553807433728), S00055 (1848355553811628032), S00056 (1848355553814773760), S00057 (1848355553816870912), S00058 (1848355553817919488), S00059 (1848355553820016640), ... (50 adds)], commit=} 0 331
+2025-11-09 23:00:20.014 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-3) [c: s: r: x:rag_core t:null-3] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2025-11-09 23:00:20.018 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-3) [c: s: r: x:rag_core t:null-3] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2025-11-09 23:00:20.022 INFO  (qtp693267461-29-null-3) [c: s: r: x:rag_core t:null-3] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[S00100 (1848355554155560960), S00101 (1848355554158706688), S00102 (1848355554159755264), S00103 (1848355554159755265), S00104 (1848355554161852416), S00105 (1848355554162900992), S00106 (1848355554163949568), S00107 (1848355554164998144), S00108 (1848355554169192448), S00109 (1848355554180726784), ... (50 adds)], commit=} 0 438
+2025-11-09 23:00:20.282 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-4) [c: s: r: x:rag_core t:null-4] o.a.s.c.QuerySenderListener QuerySenderListener done.
+2025-11-09 23:00:20.285 INFO  (searcherExecutor-13-thread-1-processing-rag_core null-4) [c: s: r: x:rag_core t:null-4] o.a.s.c.SolrCore Registered new searcher autowarm time: 0 ms
+2025-11-09 23:00:20.288 INFO  (qtp693267461-30-null-4) [c: s: r: x:rag_core t:null-4] o.a.s.u.p.LogUpdateProcessorFactory webapp=/solr path=/update params={commit=true}{add=[S00150 (1848355554622177280), S00151 (1848355554625323008), S00152 (1848355554627420160), S00153 (1848355554630565888), S00154 (1848355554632663040), S00155 (1848355554633711616), S00156 (1848355554635808768), S00157 (1848355554637905920), S00158 (1848355554637905921), S00159 (1848355554638954496), ... (27 adds)], commit=} 0 258
+2025-11-09 23:03:25.326 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.e.j.s.Server Stopped Server@376a312c{STOPPING}[10.0.19,sto=0]
+2025-11-09 23:03:25.328 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.e.j.s.AbstractConnector Stopped ServerConnector@2b95e48b{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8983}
+2025-11-09 23:03:25.332 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.a.s.c.CoreContainer Shutting down CoreContainer instance=1537371824
+2025-11-09 23:03:25.334 INFO  (coreCloseExecutor-19-thread-1) [c: s: r: x:rag_core t:] o.a.s.c.SolrCore CLOSING SolrCore org.apache.solr.core.SolrCore@5f3fff62 rag_core
+2025-11-09 23:03:25.334 INFO  (coreCloseExecutor-19-thread-1) [c: s: r: x:rag_core t:] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.core.rag_core tag=SolrCore@5f3fff62
+2025-11-09 23:03:25.344 INFO  (coreCloseExecutor-19-thread-1) [c: s: r: x:rag_core t:] o.a.s.u.DirectUpdateHandler2 Committing on IndexWriter.close()  ... SKIPPED (unnecessary).
+2025-11-09 23:03:25.351 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.node tag=null
+2025-11-09 23:03:25.356 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jvm tag=null
+2025-11-09 23:03:25.365 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.a.s.m.SolrMetricManager Closing metric reporters for registry=solr.jetty tag=null
+2025-11-09 23:03:25.374 INFO  (JettyShutdownThread) [c: s: r: x: t:] o.e.j.s.h.ContextHandler Stopped o.e.j.w.WebAppContext@655a5d9c{solr-jetty-context.xml,/solr,null,STOPPED}{/opt/solr-9.5.0/server/solr-webapp/webapp}
